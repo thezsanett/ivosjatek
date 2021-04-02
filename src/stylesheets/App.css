@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #DFFF00;
+  /* background-color: #DFFF00; */
   /* background-color: #FFBF00; */
   /* background-color: #FF7F50; */
   /* background-color: #DE3163; */
@@ -41,4 +41,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+tr, td {
+  height: 27vh;
+  width: 50vw;
+}
+
+.game-button {
+  width: 90%;
+  height: 90%;
+  border: none;
+  border-radius: 2vh;
+  font-size: 4vh;
+  font-family: 'Kalam', cursive;
 }

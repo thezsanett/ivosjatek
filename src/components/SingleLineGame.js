@@ -1,5 +1,10 @@
-export default function SingleLineGame() {
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
+export default function SingleLineGame({goBack}) {
     return (
-        <p>Game</p>
+        <>
+            <ArrowBackIosIcon onClick={goBack} style={{cursor: "pointer"}}/>
+            <p>Game</p>
+        </>
     );
 }
