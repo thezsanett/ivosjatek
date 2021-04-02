@@ -119,7 +119,7 @@ function App() {
         }
 
         {currentGame === GAMES.VOTING && 
-          <VoteGame goBack={onGoBack} changeColor={changeBackGroundColor} data={votingData}/>
+          <VoteGame goBack={onGoBack} changeColor={changeBackGroundColor} data={shuffle(votingData)}/>
         }
 
         {currentGame === GAMES.TRUTH_OR_DRINK && 
