@@ -14,13 +14,6 @@
 }
 
 .App-header {
-  /* background-color: #DFFF00; */
-  /* background-color: #FFBF00; */
-  /* background-color: #FF7F50; */
-  /* background-color: #DE3163; */
-  /* background-color: #9FE2BF; */
-  /* background-color: #40E0D0; */
-  /* background-color: #6495ED; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,4 +48,15 @@ tr, td {
   border-radius: 2vh;
   font-size: 4vh;
   font-family: 'Kalam', cursive;
+}
+
+.circle {
+  top: 5vh; 
+  left: 5vh; 
+  position: absolute;
+  color: black;
+  background-color: white;
+  padding: 2vh;
+  border-radius: 4vh;
+  cursor: pointer;
 }

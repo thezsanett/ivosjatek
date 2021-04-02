@@ -1,11 +1,11 @@
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import BackIcon from "../elements/BackIcon";
 
 export default function VoteGame({goBack}) {
     return (
         <>
-            <ArrowBackIosIcon onClick={goBack} style={{cursor: "pointer"}}/>
+            <BackIcon goBack={goBack}/>
             <p>Game</p>
             <ThumbUpIcon/>
             <ThumbDownIcon/>
