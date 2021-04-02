@@ -4,6 +4,10 @@ import * as GAMES from "../static/enums";
 import SingleLineGame from "./SingleLineGame";
 import VoteGame from "./VoteGame";
 import DoubleLineGame from "./DoubleLineGame";
+import { questions as truthData} from "../static/questions";
+import { statements as neverData } from "../static/never";
+import { choices as votingData } from "../static/choices";
+import { shuffle } from "../static/getters";
 
 function App() {
   const [currentGame, setCurrentGame] = React.useState(GAMES.NONE);
@@ -56,6 +60,7 @@ function App() {
                       setCurrentGame(GAMES.DRINK_IF);
                       changeBackGroundColor();
                     }}
+                    disabled
                   >
                     Igyon az, aki...
                   </button>
@@ -93,6 +98,7 @@ function App() {
                       setCurrentGame(GAMES.KINGS_CUP);
                       changeBackGroundColor();
                     }}
+                    disabled
                   >
                     Kings' cup
                   </button>
@@ -105,19 +111,23 @@ function App() {
         }
 
         {(currentGame === GAMES.DRINK_IF) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow=""/>
+          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="" data={shuffle(["fejlesztes alatt"])}/>
         }
 
         {(currentGame === GAMES.NEVER_HAVE_I_EVER) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="Én még soha nem" data={["nevettem nagyon hangosan", "aludtam"]}/>
+          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="Én még soha nem" data={shuffle(neverData)}/>
         }
 
         {currentGame === GAMES.VOTING && 
-          <VoteGame goBack={onGoBack} changeColor={changeBackGroundColor}/>
+          <VoteGame goBack={onGoBack} changeColor={changeBackGroundColor} data={votingData}/>
         }
 
-        {(currentGame === GAMES.TRUTH_OR_DRINK || currentGame === GAMES.KINGS_CUP) && 
-          <SingleLineGame goBack={onGoBack} changeColor={changeBackGroundColor}/>
+        {currentGame === GAMES.TRUTH_OR_DRINK && 
+          <SingleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} data={shuffle(truthData)}/>
+        }
+
+        {currentGame === GAMES.KINGS_CUP && 
+          <SingleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} data={shuffle(["fejlesztes alatt"])}/>
         }
 
       </header>
