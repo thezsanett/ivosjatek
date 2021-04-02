@@ -14,7 +14,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #DFFF00;
+  /* background-color: #FFBF00; */
+  /* background-color: #FF7F50; */
+  /* background-color: #DE3163; */
+  /* background-color: #9FE2BF; */
+  /* background-color: #40E0D0; */
+  /* background-color: #6495ED; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
