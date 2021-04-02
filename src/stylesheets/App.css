@@ -1,3 +1,7 @@
+* {
+  font-family: 'Erlan';
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +9,11 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@font-face {
+  font-family: 'Erlan';
+  src: local('Erlan'), url(../static/Erlan.otf) format('opentype');
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -47,7 +56,7 @@ tr, td {
   border: none;
   border-radius: 2vh;
   font-size: 4vh;
-  font-family: 'Kalam', cursive;
+  cursor: pointer;
 }
 
 .circle {
@@ -56,7 +65,18 @@ tr, td {
   position: absolute;
   color: black;
   background-color: white;
-  padding: 2vh;
+  width: 8vh;
+  height: 8vh;
   border-radius: 4vh;
   cursor: pointer;
+}
+
+h1 {
+  color: black;
+}
+
+.statement-div {
+  cursor: pointer;
+  margin-left: 2vh;
+  margin-right: 2vh;
 }

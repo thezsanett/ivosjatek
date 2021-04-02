@@ -7,7 +7,8 @@ import DoubleLineGame from "./DoubleLineGame";
 
 function App() {
   const [currentGame, setCurrentGame] = React.useState(GAMES.NONE);
-  const [color, setColor] = React.useState("#DFFF00");
+  const starterColor = "#DFFF00";
+  const [color, setColor] = React.useState(starterColor);
   const [colorIndex, setColorIndex] = React.useState(-1);
   const allColors = [
     "#FFBF00",
@@ -19,6 +20,7 @@ function App() {
   ]
 
   const onGoBack = () => {
+    setColor(starterColor);
     setCurrentGame(GAMES.NONE);
   }
 
@@ -34,60 +36,80 @@ function App() {
 
         {currentGame === GAMES.NONE && 
           <table>
-            <tr>
-              <td>
-                <button 
-                  className="game-button" 
-                  onClick={() => setCurrentGame(GAMES.NEVER_HAVE_I_EVER)}
-                >
-                  Én még soha
-                </button>
-              </td>
-              <td>
-                <button 
-                  className="game-button" 
-                  onClick={() => setCurrentGame(GAMES.DRINK_IF)}
-                >
-                  Igyon az, aki...
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button 
-                  className="game-button" 
-                  onClick={() => setCurrentGame(GAMES.VOTING)}
-                >
-                  Szavazás
-                </button>
-              </td>
-              <td>
-                <button 
-                  className="game-button" 
-                  onClick={() => setCurrentGame(GAMES.TRUTH_OR_DRINK)}
-                >
-                  Felelsz vagy iszol
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button 
-                  className="game-button" 
-                  onClick={() => setCurrentGame(GAMES.KINGS_CUP)}
-                >
-                  Kings' cup
-                </button>
-              </td>
-              <td>
-              </td>
-            </tr>
-            
+            <tbody>
+              <tr>
+                <td>
+                  <button 
+                    className="game-button" 
+                    onClick={() => {
+                      setCurrentGame(GAMES.NEVER_HAVE_I_EVER);
+                      changeBackGroundColor();
+                    }}
+                  >
+                    Én még soha
+                  </button>
+                </td>
+                <td>
+                  <button 
+                    className="game-button" 
+                    onClick={() => {
+                      setCurrentGame(GAMES.DRINK_IF);
+                      changeBackGroundColor();
+                    }}
+                  >
+                    Igyon az, aki...
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button 
+                    className="game-button" 
+                    onClick={() => {
+                      setCurrentGame(GAMES.VOTING);
+                      changeBackGroundColor();
+                    }}
+                  >
+                    Szavazás
+                  </button>
+                </td>
+                <td>
+                  <button 
+                    className="game-button" 
+                    onClick={() => {
+                      setCurrentGame(GAMES.TRUTH_OR_DRINK);
+                      changeBackGroundColor();
+                    }}
+                  >
+                    Felelsz vagy iszol
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button 
+                    className="game-button" 
+                    onClick={() => {
+                      setCurrentGame(GAMES.KINGS_CUP);
+                      changeBackGroundColor();
+                    }}
+                  >
+                    Kings' cup
+                  </button>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
           </table>
         }
 
-        {(currentGame === GAMES.NEVER_HAVE_I_EVER || currentGame === GAMES.DRINK_IF) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor}/>
+        {(currentGame === GAMES.DRINK_IF) && 
+          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow=""/>
+        }
+
+        {(currentGame === GAMES.NEVER_HAVE_I_EVER) && 
+          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="Én még soha nem" data={["nevettem nagyon hangosan", "aludtam"]}/>
         }
 
         {currentGame === GAMES.VOTING && 

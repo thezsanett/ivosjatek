@@ -6,7 +6,7 @@ export default function BackIcon({goBack}) {
             <ArrowBackIosIcon 
                 onClick={goBack} 
                 style={{
-                    transform: "translateX(3px)", 
+                    transform: "translate(0.5vh, 2.5vh)", 
                 }}
             />
         </div>
