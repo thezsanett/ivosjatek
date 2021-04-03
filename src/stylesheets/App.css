@@ -85,3 +85,24 @@ h1 {
   margin-left: 2vh;
   margin-right: 2vh;
 }
+
+h2, h4 {
+  color: black;
+}
+
+h2 {
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+h4 {
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

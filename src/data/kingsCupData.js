@@ -29,4 +29,5 @@ export const commands = [
     "igyál annyi kortyot, ahányan játszotok",
     "ossz ki annyi kortyot, ahányan játszotok",
     "ossz ki egy embernek annyi kortyot, ahányan játszotok",
+    "fordul a kör",
 ];

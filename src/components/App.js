@@ -1,4 +1,5 @@
 import React from "react";
+import HelpIcon from '@material-ui/icons/Help';
 import '../stylesheets/App.css';
 
 import * as GAMES from "../getters/enums";
@@ -7,6 +8,7 @@ import allColors from "../data/colors";
 import SingleLineGame from "./SingleLineGame";
 import VoteGame from "./VoteGame";
 import DoubleLineGame from "./DoubleLineGame";
+import Rules from "./Rules";
 
 import { questions as truthData} from "../data/truthDrinkData";
 import { basicStatements as neverData, sexyStatements as neverData18, } from "../data/neverHaveData";
@@ -38,6 +40,7 @@ function App() {
       <header className="App-header" style={{backgroundColor: color}}>
 
         {currentGame === GAMES.NONE && 
+        <>
           <table>
             <tbody>
               <tr>
@@ -60,7 +63,7 @@ function App() {
                       changeBackGroundColor(shuffle(allColors));
                     }}
                   >
-                    Én még soha 🔞
+                    Én még soha 18+
                   </button>
                 </td>
               </tr>
@@ -114,8 +117,13 @@ function App() {
               </tr>
             </tbody>
           </table>
+          <HelpIcon style={{fontSize: "30px"}} onClick={() => setCurrentGame(GAMES.HELP)}/>
+        </>
         }
         
+        {(currentGame === GAMES.HELP) && 
+          <Rules goBack={onGoBack} />
+        }
 
         {(currentGame === GAMES.DRINK_IF) && 
           <DoubleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} firstRow="Igyon az," punctuation="!" data={shuffle(ifData)}/>
