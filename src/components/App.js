@@ -1,13 +1,18 @@
 import React from "react";
 import '../stylesheets/App.css';
-import * as GAMES from "../static/enums";
+
+import * as GAMES from "../getters/enums";
+
 import SingleLineGame from "./SingleLineGame";
 import VoteGame from "./VoteGame";
 import DoubleLineGame from "./DoubleLineGame";
-import { questions as truthData} from "../static/questions";
-import { statements as neverData } from "../static/never";
-import { choices as votingData } from "../static/choices";
-import { shuffle } from "../static/getters";
+
+import { questions as truthData} from "../data/truthDrinkData";
+import { statements as neverData } from "../data/neverHaveData";
+import { choices as votingData } from "../data/votingGameData";
+import { commands as kingsData } from "../data/kingsCupData";
+
+import { shuffle } from "../getters/functions";
 
 function App() {
   const [currentGame, setCurrentGame] = React.useState(GAMES.NONE);
@@ -98,7 +103,6 @@ function App() {
                       setCurrentGame(GAMES.KINGS_CUP);
                       changeBackGroundColor();
                     }}
-                    disabled
                   >
                     Kings' cup
                   </button>
@@ -127,7 +131,7 @@ function App() {
         }
 
         {currentGame === GAMES.KINGS_CUP && 
-          <SingleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} data={shuffle(["fejlesztes alatt"])}/>
+          <SingleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} data={shuffle(kingsData)}/>
         }
 
       </header>
