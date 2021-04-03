@@ -1,13 +1,19 @@
 import React from "react";
 import BackIcon from "../elements/BackIcon";
 
-export default function DoubleLineGame({firstRow, goBack, data, changeColor}) {
-    const [statement, setStatement] = React.useState(firstRow + " " + data[0] + ".");
+export default function DoubleLineGame({
+    firstRow, 
+    punctuation = "",
+    goBack, 
+    data, 
+    changeColor
+}) {
+    const [statement, setStatement] = React.useState(firstRow + " " + data[0] + punctuation);
     const [index, setIndex] = React.useState(0);
 
     const changeStatement = () => {
         const newIndex = (index + 1) % data.length;
-        const newStatement = firstRow + " " + data[newIndex] + ".";
+        const newStatement = firstRow + " " + data[newIndex] + punctuation;
         setIndex(newIndex);
         setStatement(newStatement);
         changeColor();

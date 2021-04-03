@@ -2,6 +2,7 @@ import React from "react";
 import '../stylesheets/App.css';
 
 import * as GAMES from "../getters/enums";
+import allColors from "../data/colors";
 
 import SingleLineGame from "./SingleLineGame";
 import VoteGame from "./VoteGame";
@@ -11,6 +12,7 @@ import { questions as truthData} from "../data/truthDrinkData";
 import { statements as neverData } from "../data/neverHaveData";
 import { choices as votingData } from "../data/votingGameData";
 import { commands as kingsData } from "../data/kingsCupData";
+import { attributes as ifData } from "../data/drinkIfData";
 
 import { shuffle } from "../getters/functions";
 
@@ -19,14 +21,6 @@ function App() {
   const starterColor = "#DFFF00";
   const [color, setColor] = React.useState(starterColor);
   const [colorIndex, setColorIndex] = React.useState(-1);
-  const allColors = [
-    "#FFBF00",
-    "#FF7F50",
-    "#DE3163",
-    "#9FE2BF",
-    "#40E0D0",
-    "#6495ED"
-  ]
 
   const onGoBack = () => {
     setColor(starterColor);
@@ -65,7 +59,6 @@ function App() {
                       setCurrentGame(GAMES.DRINK_IF);
                       changeBackGroundColor();
                     }}
-                    disabled
                   >
                     Igyon az, aki...
                   </button>
@@ -115,11 +108,11 @@ function App() {
         }
 
         {(currentGame === GAMES.DRINK_IF) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="" data={shuffle(["fejlesztes alatt"])}/>
+          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="Igyon az," punctuation="!" data={shuffle(ifData)}/>
         }
 
         {(currentGame === GAMES.NEVER_HAVE_I_EVER) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="Én még soha nem" data={shuffle(neverData)}/>
+          <DoubleLineGame goBack={onGoBack} changeColor={changeBackGroundColor} firstRow="Én még soha nem" punctuation="." data={shuffle(neverData)}/>
         }
 
         {currentGame === GAMES.VOTING && 
