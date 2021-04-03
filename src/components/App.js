@@ -117,7 +117,7 @@ function App() {
               </tr>
             </tbody>
           </table>
-          <HelpIcon style={{fontSize: "30px"}} onClick={() => setCurrentGame(GAMES.HELP)}/>
+          <HelpIcon style={{fontSize: "30px", cursor: "pointer"}} onClick={() => setCurrentGame(GAMES.HELP)}/>
         </>
         }
         
