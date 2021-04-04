@@ -21,12 +21,12 @@ export default function VoteGame({goBack, data, changeColor}) {
                 <h1>{statement[0]}</h1>
 
                 <div className="vote-button">
-                    <h2>{statement[1]}</h2>
+                    <h3>{statement[1]}</h3>
                     <ThumbUpIcon/>
                 </div>
                 <br/>
                 <div className="vote-button">
-                    <h2>{statement[2]}</h2>
+                    <h3>{statement[2]}</h3>
                     <ThumbDownIcon/>
                 </div>
             </div>

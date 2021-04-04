@@ -53,6 +53,7 @@ tr, td {
     width: 33vw;
     height: 20vh;
     padding: 2vh;
+    margin: 0px auto;
   }
 }
 
@@ -61,6 +62,7 @@ tr, td {
     width: 30vw;
     height: 30vw;
     padding: 10vw;
+    margin: 0px auto;
   }
 }
 
@@ -78,6 +80,8 @@ tr, td {
 
 h1 {
   color: black;
+  margin: 0px;
+  margin-bottom: 10px;
 }
 
 .statement-div {
@@ -97,6 +101,10 @@ h2 {
   margin-top: 15px;
   margin-bottom: 10px;
   border-radius: 5px;
+}
+
+h3 {
+  font-size: 25px;
 }
 
 h4 {
