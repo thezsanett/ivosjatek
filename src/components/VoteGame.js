@@ -30,7 +30,7 @@ export default function VoteGame({goBack, data, changeColor}) {
                     <ThumbDownIcon/>
                 </div>
             </div>
-            
+            <p style={{fontSize: "20px", position: "absolute", bottom: "20px"}} >{index+1} / {data.length}</p>
         </>
     );
 }

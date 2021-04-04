@@ -256,4 +256,10 @@ export const sexyStatements = [
     "sztriptízeltem",
     "néztem pornót valakivel",
     "borotváltam herét",
+    "nyaltam ki senkit",
+    "szoptam le senkit",
+    "mélytortkoztam",
+    "szexeltem ezen a helyen",
+    "smároltam ezen a helyen",
+    "vezettem listát a szexpartnereimről",
 ];

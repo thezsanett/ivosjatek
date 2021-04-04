@@ -146,7 +146,7 @@ function App() {
         }
 
         {currentGame === GAMES.KINGS_CUP && 
-          <SingleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} data={shuffle(kingsData)}/>
+          <SingleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} data={shuffle(kingsData)} punctuation="!"/>
         }
 
       </header>
