@@ -176,7 +176,10 @@ function App() {
           <VoteGame 
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
-            data={statements.votingData}
+            dataLength={statements.votingData.length} 
+            getCurrentData={() => getCurrentData(statements.votingData, indexForVoting, setIndexForVoting)}
+            starterStatement={statements.votingData[indexForVoting]}
+            index={indexForVoting}
           />
         }
 

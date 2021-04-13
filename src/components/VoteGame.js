@@ -3,14 +3,19 @@ import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import BackIcon from "../elements/BackIcon";
 
-export default function VoteGame({goBack, data, changeColor}) {
-    const [statement, setStatement] = React.useState(data[0]);
-    const [index, setIndex] = React.useState(0);
+export default function VoteGame({
+    goBack, 
+    dataLength, 
+    changeColor,
+    getCurrentData,
+    starterStatement,
+    index
+}) {
+    const [statement, setStatement] = React.useState(starterStatement);
 
     const changeStatement = () => {
-        const newIndex = (index + 1) % data.length;
-        setIndex(newIndex);
-        setStatement(data[newIndex]);
+        const newStatement = getCurrentData();
+        setStatement(newStatement);
         changeColor();
     };
 
@@ -30,7 +35,7 @@ export default function VoteGame({goBack, data, changeColor}) {
                     <ThumbDownIcon/>
                 </div>
             </div>
-            <p style={{fontSize: "20px", position: "absolute", bottom: "20px"}} >{index+1} / {data.length}</p>
+            <p style={{fontSize: "20px", position: "absolute", bottom: "20px"}} >{index+1} / {dataLength}</p>
         </>
     );
 }
