@@ -92,4 +92,8 @@ export const questions = [
     "Mikor randiztál utoljára?",
     "Mi az legfrissebb kép a telefonodban?",
     "Mi a legrégebbi kép a telefonodban?",
+    "Mi egy szextipped?",
+    "Mi egy dolog a bakancslistádról?",
+    "Kivel volt eddig a legrosszabb a szex és miért?",
+    "Kivel nem smárolnál semennyi pénzért sem?",
 ]

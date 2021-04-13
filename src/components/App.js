@@ -40,7 +40,6 @@ function App() {
   }
 
   const getCurrentData = (dataArray, indexValue, setIndexValue) => {
-    console.log(dataArray);
     const index = (indexValue + 1) % dataArray.length;
     setIndexValue(index);
     return dataArray[index];

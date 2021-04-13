@@ -64,4 +64,10 @@ export const commands = [
     "mondj egy szót! aki először nem tud rímet rá, iszik",
     "kitalálhatsz egy szabályt! aki egy körön belül bármikor megszegi, iszik",
     "kitalálhatsz egy szabályt! aki egy körön belül bármikor megszegi, iszik",
+    "önts a piádból valaki szájába",
+    "válaszd ki, ki öntsön a piájából a szádba",
+    "igyál meg egy shotot kéz nélkül",
+    "válaszd ki, ki igyon meg egy shotot kéz nélkül",
+    "válaszd ki, ki öntsön egy shotot a szádba",
+    "önts egy shotot valaki szájába",
 ];
