@@ -152,7 +152,7 @@ function App() {
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
             firstRow="Én még soha nem" punctuation="."
-            dataLength={statements.neverData18.length} 
+            dataLength={statements.neverData.length} 
             getCurrentData={() => getCurrentData(statements.neverData, indexForNeverHave, setIndexForNeverHave)}
             starterStatement={statements.neverData[indexForNeverHave]}
             index={indexForNeverHave}
