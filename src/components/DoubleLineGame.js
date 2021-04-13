@@ -5,16 +5,16 @@ export default function DoubleLineGame({
     firstRow, 
     punctuation = "",
     goBack, 
-    data, 
-    changeColor
+    dataLength, 
+    changeColor,
+    getCurrentData,
+    starterStatement,
+    index
 }) {
-    const [statement, setStatement] = React.useState(firstRow + " " + data[0] + punctuation);
-    const [index, setIndex] = React.useState(0);
+    const [statement, setStatement] = React.useState(firstRow + " " + starterStatement + punctuation);
 
     const changeStatement = () => {
-        const newIndex = (index + 1) % data.length;
-        const newStatement = firstRow + " " + data[newIndex] + punctuation;
-        setIndex(newIndex);
+        const newStatement = firstRow + " " + getCurrentData() + punctuation;
         setStatement(newStatement);
         changeColor();
     }
@@ -25,7 +25,7 @@ export default function DoubleLineGame({
             <div onClick={changeStatement} className="statement-div">
                 <h1>{statement}</h1>
             </div>
-            <p style={{fontSize: "20px", position: "absolute", bottom: "20px"}} >{index+1} / {data.length}</p>
+            <p style={{fontSize: "20px", position: "absolute", bottom: "20px"}} >{index+1} / {dataLength}</p>
         </>
     );
 }

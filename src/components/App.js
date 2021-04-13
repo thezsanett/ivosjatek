@@ -3,26 +3,30 @@ import HelpIcon from '@material-ui/icons/Help';
 import '../stylesheets/App.css';
 
 import * as GAMES from "../getters/enums";
+import * as statements from "../getters/statements";
+
 import allColors from "../data/colors";
 
-import SingleLineGame from "./SingleLineGame";
 import VoteGame from "./VoteGame";
 import DoubleLineGame from "./DoubleLineGame";
 import Rules from "./Rules";
-
-import { questions as truthData} from "../data/truthDrinkData";
-import { basicStatements as neverData, sexyStatements as neverData18, } from "../data/neverHaveData";
-import { choices as votingData } from "../data/votingGameData";
-import { commands as kingsData } from "../data/kingsCupData";
-import { attributes as ifData } from "../data/drinkIfData";
 
 import { shuffle } from "../getters/functions";
 
 function App() {
   const [currentGame, setCurrentGame] = React.useState(GAMES.NONE);
+  
   const starterColor = "#DFFF00";
+
   const [color, setColor] = React.useState(starterColor);
   const [colorIndex, setColorIndex] = React.useState(-1);
+
+  const [indexForDrinkIf, setIndexForDrinkIf] = React.useState(0);
+  const [indexForNeverHave, setIndexForNeverHave] = React.useState(0);
+  const [indexForNeverHave18, setIndexForNeverHave18] = React.useState(0);
+  const [indexForVoting, setIndexForVoting] = React.useState(0);
+  const [indexForTruthDrink, setIndexForTruthDrink] = React.useState(0);
+  const [indexForKingsCup, setIndexForKingsCup] = React.useState(0);
 
   const onGoBack = () => {
     setColor(starterColor);
@@ -33,6 +37,13 @@ function App() {
     const index = (colorIndex + 1) % colors.length;
     setColorIndex(index);
     setColor(colors[index]);
+  }
+
+  const getCurrentData = (dataArray, indexValue, setIndexValue) => {
+    console.log(dataArray);
+    const index = (indexValue + 1) % dataArray.length;
+    setIndexValue(index);
+    return dataArray[index];
   }
 
   return (
@@ -126,27 +137,71 @@ function App() {
         }
 
         {(currentGame === GAMES.DRINK_IF) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} firstRow="Igyon az," punctuation="!" data={shuffle(ifData)}/>
+          <DoubleLineGame 
+            goBack={onGoBack} 
+            changeColor={() => changeBackGroundColor(shuffle(allColors))} 
+            firstRow="Igyon az," punctuation="!" 
+            dataLength={statements.ifData.length} 
+            getCurrentData={() => getCurrentData(statements.ifData, indexForDrinkIf, setIndexForDrinkIf)}
+            starterStatement={statements.ifData[indexForDrinkIf]}
+            index={indexForDrinkIf}
+          />
         }
 
         {(currentGame === GAMES.NEVER_HAVE_I_EVER) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} firstRow="Én még soha nem" punctuation="." data={shuffle(neverData)}/>
+          <DoubleLineGame 
+            goBack={onGoBack} 
+            changeColor={() => changeBackGroundColor(shuffle(allColors))} 
+            firstRow="Én még soha nem" punctuation="."
+            dataLength={statements.neverData18.length} 
+            getCurrentData={() => getCurrentData(statements.neverData, indexForNeverHave, setIndexForNeverHave)}
+            starterStatement={statements.neverData[indexForNeverHave]}
+            index={indexForNeverHave}
+          />
         }
 
         {(currentGame === GAMES.NEVER_HAVE_I_EVER_18) && 
-          <DoubleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} firstRow="Én még soha nem" punctuation="." data={shuffle(neverData18)}/>
+          <DoubleLineGame 
+            goBack={onGoBack} 
+            changeColor={() => changeBackGroundColor(shuffle(allColors))} 
+            firstRow="Én még soha nem" punctuation="."
+            dataLength={statements.neverData18.length} 
+            getCurrentData={() => getCurrentData(statements.neverData18, indexForNeverHave18, setIndexForNeverHave18)}
+            starterStatement={statements.neverData18[indexForNeverHave18]}
+            index={indexForNeverHave18}
+          />
         }
 
         {currentGame === GAMES.VOTING && 
-          <VoteGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} data={shuffle(votingData)}/>
+          <VoteGame 
+            goBack={onGoBack} 
+            changeColor={() => changeBackGroundColor(shuffle(allColors))} 
+            data={statements.votingData}
+          />
         }
 
         {currentGame === GAMES.TRUTH_OR_DRINK && 
-          <SingleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} data={shuffle(truthData)}/>
+          <DoubleLineGame 
+            goBack={onGoBack} 
+            changeColor={() => changeBackGroundColor(shuffle(allColors))} 
+            firstRow="" punctuation=""
+            dataLength={statements.truthData.length} 
+            getCurrentData={() => getCurrentData(statements.truthData, indexForTruthDrink, setIndexForTruthDrink)}
+            starterStatement={statements.truthData[indexForTruthDrink]}
+            index={indexForTruthDrink}
+          />
         }
 
         {currentGame === GAMES.KINGS_CUP && 
-          <SingleLineGame goBack={onGoBack} changeColor={() => changeBackGroundColor(shuffle(allColors))} data={shuffle(kingsData)} punctuation="!"/>
+          <DoubleLineGame 
+            goBack={onGoBack} 
+            changeColor={() => changeBackGroundColor(shuffle(allColors))} 
+            firstRow="" punctuation="!"
+            dataLength={statements.kingsData.length} 
+            getCurrentData={() => getCurrentData(statements.kingsData, indexForKingsCup, setIndexForKingsCup)}
+            starterStatement={statements.kingsData[indexForKingsCup]}
+            index={indexForKingsCup}
+          />
         }
 
       </header>
