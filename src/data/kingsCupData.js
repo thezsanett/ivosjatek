@@ -70,4 +70,9 @@ export const commands = [
     "válaszd ki, ki igyon meg egy shotot kéz nélkül",
     "válaszd ki, ki öntsön egy shotot a szádba",
     "önts egy shotot valaki szájába",
+    "szkanderezz a melletted ülővel! a vesztes iszik",
+    "válassz egy embert! aki nyer szkanderben, az kioszthat 3 kortyot",
+    "válassz két embert! amelyikük veszít szkanderben, az iszik egy shotot",
+    "cseréld el az italod valaki máséval",
+    "válassz ki két embert, akik italt cserélnek",
 ];
