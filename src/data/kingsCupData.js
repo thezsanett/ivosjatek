@@ -75,4 +75,8 @@ export const commands = [
     "válassz két embert! amelyikük veszít szkanderben, az iszik egy shotot",
     "cseréld el az italod valaki máséval",
     "válassz ki két embert, akik italt cserélnek",
+    "válassz ki valakit, akivel egy körön keresztül együtt isztok",
+    "válassz ki valakit, akivel egy körön keresztül együtt isztok",
+    "igyál 5 másodpercen keresztül",
+    "válassz ki valakit, akinek 5 másodpercen keresztül innia kell",
 ];

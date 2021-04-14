@@ -60,6 +60,10 @@ export const attributes = [
     "akinek a leghosszabb komoly kapcsolata volt",
     "aki balkezes",
     "aki jobbkezes",
-    "aki nem találja el a vele szemben ülő fehérnmeűjének a színét",
+    "aki nem találja el a vele szemben ülő fehérneműjének a színét",
     "aki legutóbb volt mosdóban",
+    "akinek a telója a legkevesebb százalékon van",
+    "akinek a legtöbb pia van a poharában",
+    "akit legtöbbször utasítottak el",
+    "aki a legtöbb embert friendzonolt a többiek szerint",
 ];
