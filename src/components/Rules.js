@@ -16,7 +16,9 @@ export default function Rules({goBack}) {
                 <h2>Igyon az, aki...</h2>
                 <h4>Mindenkinek innia kell egy kortyot, akire vonatkozik a kártyán lévő állítás.</h4>
                 <h2>King's cup</h2>
-                <h4>Körben megyünk, mindig a soron lévő játékos hajtja vagy hajtatja végre a feladatot.</h4>
+                <h4>Körbe megyünk, mindig a soron lévő játékos hajtja vagy hajtatja végre a feladatot.</h4>
+                <h2>Most likely to</h2>
+                <h4>Mindenki mutasson rá arra, akire a legvalószínűbb az állítás. Akire a legtöbben mutattak, az iszik!</h4>
             </div>
             
         </>

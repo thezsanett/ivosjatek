@@ -27,6 +27,7 @@ function App() {
   const [indexForVoting, setIndexForVoting] = React.useState(0);
   const [indexForTruthDrink, setIndexForTruthDrink] = React.useState(0);
   const [indexForKingsCup, setIndexForKingsCup] = React.useState(0);
+  const [indexForMostLikely, setIndexForMostLikely] = React.useState(0);
 
   const onGoBack = () => {
     setColor(starterColor);
@@ -125,6 +126,21 @@ function App() {
                   </button>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <button 
+                    className="game-button" 
+                    onClick={() => {
+                      setCurrentGame(GAMES.MOST_LIKELY);
+                      changeBackGroundColor(shuffle(allColors));
+                    }}
+                  >
+                    Most likely to
+                  </button>
+                </td>
+                <td>
+                </td>
+              </tr>
             </tbody>
           </table>
           <HelpIcon style={{fontSize: "30px", cursor: "pointer"}} onClick={() => setCurrentGame(GAMES.HELP)}/>
@@ -203,6 +219,18 @@ function App() {
             getCurrentData={() => getCurrentData(statements.kingsData, indexForKingsCup, setIndexForKingsCup)}
             starterStatement={statements.kingsData[indexForKingsCup]}
             index={indexForKingsCup}
+          />
+        }
+
+        {currentGame === GAMES.MOST_LIKELY && 
+          <DoubleLineGame 
+            goBack={onGoBack} 
+            changeColor={() => changeBackGroundColor(shuffle(allColors))} 
+            firstRow="Kire a legvalószínűbb, hogy" punctuation="?"
+            dataLength={statements.likelyData.length} 
+            getCurrentData={() => getCurrentData(statements.likelyData, indexForMostLikely, setIndexForMostLikely)}
+            starterStatement={statements.likelyData[indexForMostLikely]}
+            index={indexForMostLikely}
           />
         }
 

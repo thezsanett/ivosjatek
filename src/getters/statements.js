@@ -3,10 +3,12 @@ import { basicStatements, sexyStatements } from "../data/neverHaveData";
 import { choices } from "../data/votingGameData";
 import { commands } from "../data/kingsCupData";
 import { attributes } from "../data/drinkIfData";
+import { who } from "../data/mostLikelyData";
 
 import { shuffle, insertToArrayWithOffset } from "./functions";
 
 
+const likelyData = shuffle(who);
 const votingData = shuffle(choices);
 const kingsData = shuffle(commands);
 const ifData = shuffle(attributes);
@@ -24,4 +26,5 @@ export {
     neverData,
     neverData18,
     truthData,
+    likelyData,
 }

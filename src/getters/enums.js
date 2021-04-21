@@ -6,3 +6,4 @@ export const DRINK_IF = "DRINK_IF";
 export const TRUTH_OR_DRINK = "TRUTH_OR_DRINK";
 export const KINGS_CUP = "KINGS_CUP";
 export const VOTING = "VOTING";
+export const MOST_LIKELY = "MOST_LIKELY";
