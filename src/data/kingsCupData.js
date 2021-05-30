@@ -1,4 +1,4 @@
-export const commands = [
+export const both = [
     "Shot",
     "Shot",
     "Shot",
@@ -80,3 +80,6 @@ export const commands = [
     "igyál 5 másodpercen keresztül",
     "válassz ki valakit, akinek 5 másodpercen keresztül innia kell",
 ];
+
+export const basic = [];
+export const sexy = [];
