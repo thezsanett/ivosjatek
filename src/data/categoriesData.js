@@ -1,4 +1,6 @@
-export const both = [];
+export const both = [
+    "eddigi feladványok"
+];
 
 export const basic = [
     "kutyafajták",
@@ -15,7 +17,6 @@ export const basic = [
     "alkoholfajták",
     "országok",
     "megyeszékhelyek",
-    "eddigi feladvanyok",
     "labda nélküli sportok",
     "koktélok",
     "kocsmák",

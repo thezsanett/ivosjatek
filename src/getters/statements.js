@@ -1,30 +1,17 @@
-import { questions, orderedQuestions, followingQuestions } from "../data/truthDrinkData";
-import { basicStatements, sexyStatements } from "../data/neverHaveData";
-import { choices } from "../data/votingGameData";
-import { commands } from "../data/kingsCupData";
-import { attributes } from "../data/drinkIfData";
-import { who } from "../data/mostLikelyData";
+import * as truthDrink from "../data/truthDrinkData";
+import * as neverHave from "../data/neverHaveData";
+import * as votingGame from "../data/votingGameData";
+import * as kingsCup from "../data/kingsCupData";
+import * as drinkIf from "../data/drinkIfData";
+import * as mostLikely from "../data/mostLikelyData";
+import * as categories from "../data/categoriesData";
 
-import { shuffle, insertToArrayWithOffset } from "./functions";
+import { shuffle } from "./functions";
 
-
-const likelyData = shuffle(who);
-const votingData = shuffle(choices);
-const kingsData = shuffle(commands);
-const ifData = shuffle(attributes);
-const neverData = shuffle(basicStatements);
-const neverData18 = shuffle(sexyStatements);
-
-const shuffledTruthData = shuffle(questions);
-const orderedTruthData = insertToArrayWithOffset(shuffledTruthData, orderedQuestions, true);
-const truthData = insertToArrayWithOffset(orderedTruthData, followingQuestions, false);
-
-export { 
-    votingData,
-    kingsData,
-    ifData,
-    neverData,
-    neverData18,
-    truthData,
-    likelyData,
-}
+export const truthDrinkData = shuffle(truthDrink.both);
+export const neverHaveData = shuffle(neverHave.both);
+export const votingGameData = shuffle(votingGame.both);
+export const kingsCupData = shuffle(kingsCup.both);
+export const drinkIfData = shuffle(drinkIf.both);
+export const mostLikelyData = shuffle(mostLikely.both);
+export const categoriesData = shuffle(categories.both);

@@ -23,7 +23,7 @@ function App() {
 
   const [indexForDrinkIf, setIndexForDrinkIf] = React.useState(0);
   const [indexForNeverHave, setIndexForNeverHave] = React.useState(0);
-  const [indexForNeverHave18, setIndexForNeverHave18] = React.useState(0);
+  const [indexForCategories, setIndexForCategories] = React.useState(0);
   const [indexForVoting, setIndexForVoting] = React.useState(0);
   const [indexForTruthDrink, setIndexForTruthDrink] = React.useState(0);
   const [indexForKingsCup, setIndexForKingsCup] = React.useState(0);
@@ -70,11 +70,11 @@ function App() {
                   <button 
                     className="game-button" 
                     onClick={() => {
-                      setCurrentGame(GAMES.NEVER_HAVE_I_EVER_18);
+                      setCurrentGame(GAMES.CATEGORIES);
                       changeBackGroundColor(shuffle(allColors));
                     }}
                   >
-                    Én még soha 18+
+                    Kategóriák
                   </button>
                 </td>
               </tr>
@@ -166,9 +166,9 @@ function App() {
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
             firstRow="Igyon az," punctuation="!" 
-            dataLength={statements.ifData.length} 
-            getCurrentData={() => getCurrentData(statements.ifData, indexForDrinkIf, setIndexForDrinkIf)}
-            starterStatement={statements.ifData[indexForDrinkIf]}
+            dataLength={statements.drinkIfData.length} 
+            getCurrentData={() => getCurrentData(statements.drinkIfData, indexForDrinkIf, setIndexForDrinkIf)}
+            starterStatement={statements.drinkIfData[indexForDrinkIf]}
             index={indexForDrinkIf}
           />
         }
@@ -178,22 +178,22 @@ function App() {
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
             firstRow="Én még soha nem" punctuation="."
-            dataLength={statements.neverData.length} 
-            getCurrentData={() => getCurrentData(statements.neverData, indexForNeverHave, setIndexForNeverHave)}
-            starterStatement={statements.neverData[indexForNeverHave]}
+            dataLength={statements.neverHaveData.length} 
+            getCurrentData={() => getCurrentData(statements.neverHaveData, indexForNeverHave, setIndexForNeverHave)}
+            starterStatement={statements.neverHaveData[indexForNeverHave]}
             index={indexForNeverHave}
           />
         }
 
-        {(currentGame === GAMES.NEVER_HAVE_I_EVER_18) && 
+        {(currentGame === GAMES.CATEGORIES) && 
           <DoubleLineGame 
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
-            firstRow="Én még soha nem" punctuation="."
-            dataLength={statements.neverData18.length} 
-            getCurrentData={() => getCurrentData(statements.neverData18, indexForNeverHave18, setIndexForNeverHave18)}
-            starterStatement={statements.neverData18[indexForNeverHave18]}
-            index={indexForNeverHave18}
+            firstRow="" punctuation=""
+            dataLength={statements.categoriesData.length} 
+            getCurrentData={() => getCurrentData(statements.categoriesData, indexForCategories, setIndexForCategories)}
+            starterStatement={statements.categoriesData[indexForCategories]}
+            index={indexForCategories}
           />
         }
 
@@ -201,9 +201,9 @@ function App() {
           <VoteGame 
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
-            dataLength={statements.votingData.length} 
-            getCurrentData={() => getCurrentData(statements.votingData, indexForVoting, setIndexForVoting)}
-            starterStatement={statements.votingData[indexForVoting]}
+            dataLength={statements.votingGameData.length} 
+            getCurrentData={() => getCurrentData(statements.votingGameData, indexForVoting, setIndexForVoting)}
+            starterStatement={statements.votingGameData[indexForVoting]}
             index={indexForVoting}
           />
         }
@@ -213,9 +213,9 @@ function App() {
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
             firstRow="" punctuation=""
-            dataLength={statements.truthData.length} 
-            getCurrentData={() => getCurrentData(statements.truthData, indexForTruthDrink, setIndexForTruthDrink)}
-            starterStatement={statements.truthData[indexForTruthDrink]}
+            dataLength={statements.truthDrinkData.length} 
+            getCurrentData={() => getCurrentData(statements.truthDrinkData, indexForTruthDrink, setIndexForTruthDrink)}
+            starterStatement={statements.truthDrinkData[indexForTruthDrink]}
             index={indexForTruthDrink}
           />
         }
@@ -225,9 +225,9 @@ function App() {
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
             firstRow="" punctuation="!"
-            dataLength={statements.kingsData.length} 
-            getCurrentData={() => getCurrentData(statements.kingsData, indexForKingsCup, setIndexForKingsCup)}
-            starterStatement={statements.kingsData[indexForKingsCup]}
+            dataLength={statements.kingsCupData.length} 
+            getCurrentData={() => getCurrentData(statements.kingsCupData, indexForKingsCup, setIndexForKingsCup)}
+            starterStatement={statements.kingsCupData[indexForKingsCup]}
             index={indexForKingsCup}
           />
         }
@@ -237,9 +237,9 @@ function App() {
             goBack={onGoBack} 
             changeColor={() => changeBackGroundColor(shuffle(allColors))} 
             firstRow="Kire a legvalószínűbb, hogy" punctuation="?"
-            dataLength={statements.likelyData.length} 
-            getCurrentData={() => getCurrentData(statements.likelyData, indexForMostLikely, setIndexForMostLikely)}
-            starterStatement={statements.likelyData[indexForMostLikely]}
+            dataLength={statements.mostLikelyData.length} 
+            getCurrentData={() => getCurrentData(statements.mostLikelyData, indexForMostLikely, setIndexForMostLikely)}
+            starterStatement={statements.mostLikelyData[indexForMostLikely]}
             index={indexForMostLikely}
           />
         }
