@@ -1,5 +1,6 @@
 import React from "react";
 import HelpIcon from '@material-ui/icons/Help';
+import SettingsIcon from '@material-ui/icons/Settings';
 import '../stylesheets/App.css';
 
 import * as GAMES from "../getters/enums";
@@ -10,6 +11,7 @@ import allColors from "../data/colors";
 import VoteGame from "./VoteGame";
 import DoubleLineGame from "./DoubleLineGame";
 import Rules from "./Rules";
+import Settings from "./Settings";
 
 import { shuffle } from "../getters/functions";
 
@@ -32,6 +34,16 @@ function App() {
   const onGoBack = () => {
     setColor(starterColor);
     setCurrentGame(GAMES.NONE);
+  }
+
+  const resetCounters = () => {
+    setIndexForDrinkIf(0);
+    setIndexForNeverHave(0);
+    setIndexForCategories(0);
+    setIndexForVoting(0);
+    setIndexForTruthDrink(0);
+    setIndexForKingsCup(0);
+    setIndexForMostLikely(0);
   }
 
   const changeBackGroundColor = (colors) => {
@@ -138,6 +150,17 @@ function App() {
                     Most likely to
                   </button>
                 </td>
+                {/* <td>
+                  <button 
+                    className="game-button" 
+                    onClick={() => {
+                      setCurrentGame(GAMES.NONE);
+                      changeBackGroundColor(shuffle(allColors));
+                    }}
+                  >
+                    Would you rather...?
+                  </button>
+                </td> */}
                 <td>
                   <button 
                     className="game-button" 
@@ -153,12 +176,18 @@ function App() {
               </tr>
             </tbody>
           </table>
-          <HelpIcon style={{fontSize: "30px", cursor: "pointer"}} onClick={() => setCurrentGame(GAMES.HELP)}/>
+          <div>
+            <HelpIcon style={{fontSize: "30px", cursor: "pointer"}} onClick={() => setCurrentGame(GAMES.HELP)}/>
+            <SettingsIcon style={{fontSize: "30px", cursor: "pointer"}} onClick={() => setCurrentGame(GAMES.SETTINGS)}/>
+          </div>
         </>
         }
         
         {(currentGame === GAMES.HELP) && 
           <Rules goBack={onGoBack} />
+        }
+        {(currentGame === GAMES.SETTINGS) && 
+          <Settings goBack={onGoBack} resetCounters={resetCounters} />
         }
 
         {(currentGame === GAMES.DRINK_IF) && 

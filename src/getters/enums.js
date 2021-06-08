@@ -1,5 +1,6 @@
 export const NONE = "NONE";
 export const HELP = "HELP";
+export const SETTINGS = "SETTINGS";
 export const NEVER_HAVE_I_EVER = "NEVER_HAVE_I_EVER";
 export const CATEGORIES = "CATEGORIES";
 export const DRINK_IF = "DRINK_IF";
